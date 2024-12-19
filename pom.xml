@@ -33,6 +33,13 @@
 			<version>${ignite-version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.ignite</groupId>
+			<artifactId>ignite-direct-io</artifactId>
+			<version>${ignite-version}</version>
+		</dependency>
+
+
 		<!-- Logging dependencies -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -92,15 +99,12 @@
 						<argument>--add-opens=java.base/java.math=ALL-UNNAMED</argument>
 						<argument>
 							--add-exports=jdk.unsupported/sun.misc=ALL-UNNAMED</argument>
-
+						<argument>-agentlib:jdwp=transport=dt_socket,server=y,address=8000,suspend=n</argument>
 						<argument>-classpath</argument>
 						<classpath />
-
-
-						<argument>-DIGNITE_NO_SHUTDOWN_HOOK=false
-							-Djava.net.preferIPv4Stack=true</argument>
+						<argument>-Djava.net.preferIPv4Stack=true</argument>
 						<argument>com.example.IgniteWALExample</argument>
-
+						<argument>--parallelism=24</argument>
 					</arguments>
 
 				</configuration>
